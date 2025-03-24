@@ -1,0 +1,430 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 60px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #000;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 60px;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+.logo img {
+    display: block;
+}
+
+.main-nav {
+    flex: 1;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding: 5px 0;
+    margin: 6px;
+}
+
+.nav-links a:hover {
+    color: #dddee4;
+    font-weight: 500;
+    background-color: #000;
+    border-radius: 16px;
+    padding: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a.active {
+    color: #1428a0;
+    font-weight: 500;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 6px;
+}
+
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    position: relative;
+    margin-right: 20px;
+}
+
+.search-container {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+#searchInput {
+    width: 180px;
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+#searchButton {
+    background: transparent;
+    border: none;
+    padding: 0 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.search-result-item {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background: #f0f0f0;
+}
+
+.cart, .account {
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+.cart a, .account a {
+    color: #000;
+    text-decoration: none;
+}
+
+.content-area {
+    width: 100%;
+}
+
+.main-content {
+    width: 100%;
+    padding: 20px;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px; 
+    background: linear-gradient(138deg, #00e5ff 40%, #0000ff 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 60px;
+    padding: 12px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.one p{
+    color: whitesmoke;
+    text-align: center;
+    width: 55%;
+    padding: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.samsung {
+    background-color: black;
+    padding: 30px; 
+    border-radius: 0px 0px 8px 8px;
+}
+
+.iphone {
+    margin-top: 20vh;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.iphone h1{
+    background: linear-gradient(138deg, #848484 45%,black, #000000 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 40px;
+}
+
+.iphone p{
+    color: #000;
+    width: 90%;
+    padding: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+.iphone video{
+    border-radius: 12px;
+}
+
+.asus{
+    margin-top: 20vh;
+    background-color: #000000;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.asus h1{
+    background: linear-gradient(138deg, #ff9797 45%,rgb(255, 0, 0), #000000 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 40px;
+    font-family: "Orbitron", sans-serif;
+}
+
+.asus p{
+    color: #fff;
+    width: 90%;
+    padding: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+.mi{
+    margin-top: 20vh;
+    background-color: #ededed;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.mi h1{
+    background: linear-gradient(135deg, #ffebd7 20%,orange, #e25700 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 40px;
+}
+
+.mi p{
+    color: #000;
+    width: 90%;
+    padding: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+.oneplus{
+    margin-top: 20vh;
+    background-color: #000000;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.oneplus h1{
+    background: linear-gradient(90deg, #ffb5b5 20%, #F5010C 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 40px;
+}
+
+.oneplus p{
+    color: #fff;
+    width: 90%;
+    padding: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+.oneplus video , .mi video{
+    border-radius: 12px;
+}
+
+.motorola{
+    margin-top: 20vh;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.motorola h1{
+    background: linear-gradient(135deg, #ffffff 20%, #0059ff 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 40px;
+}
+
+.motorola p{
+    color: #000;
+    width: 90%;
+    padding: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+video{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shop{
+    background-color: #d8d8d8;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.shop a{
+    text-decoration: none;
+    color: #000;
+}
+
+.shop a:hover{
+    text-decoration: underline;
+}
+
+.shop h1{
+    text-align: center;
+    padding: 16px;
+    color: #000;
+    font-size: 36px;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+}
+
+.mi .product-series{
+    overflow-x: scroll;
+}
+
+.product-series {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    margin: 0 -10px;
+}
+
+.product-card {
+    display: grid;
+    padding: 20px;
+    margin: 10px;
+    width: fit-content;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.5s;
+}
+
+.product-card img:hover {
+    transform: scale(1.1);
+}
+
+.product-card h3 {
+    text-align: center;
+    padding: 16px;
+    font-weight: 500;
+}
+
+.product-card h4 {
+    background-color: #000;
+    color: #fff;
+    border-radius: 16px;
+    padding: 8px;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    transition: background-color 0.3s;
+}
+
+.product-card a {
+    text-decoration: none;
+}
+
