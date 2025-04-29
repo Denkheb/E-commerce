@@ -13,6 +13,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #000;
+    overflow-x: hidden;
 }
 
 .main-header {
@@ -39,15 +40,12 @@ body {
 
 .main-nav {
     flex: 1;
+    position: relative;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-}
-
-.nav-links {
-    margin: 0 10px;
 }
 
 .nav-links a {
@@ -140,11 +138,28 @@ body {
 .cart, .account {
     margin-left: 15px;
     font-size: 20px;
+    position: relative;
 }
 
 .cart a, .account a {
     color: #000;
     text-decoration: none;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #1428a0;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .content-area {
@@ -306,7 +321,7 @@ h1 {
     text-align: center;
 }
 
-.oneplus video , .mi video{
+.oneplus video , .motorola video{
     border-radius: 12px;
 }
 
@@ -341,6 +356,8 @@ video{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .shop{
@@ -369,17 +386,15 @@ video{
     background-clip: initial;
 }
 
-.mi .product-series{
-    overflow-x: scroll;
-}
-
-.product-series {
+.mi .product-series {
     display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
     padding: 10px 0;
     margin: 0 -10px;
 }
+
+
 
 .product-card {
     display: grid;
@@ -391,6 +406,24 @@ video{
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
+
+
+.mi .product-card {
+    
+    flex: 0 0 auto;
+    width: auto; 
+}
+
+.product-series {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    margin: 0 -10px;
+    flex-wrap: wrap;
+}
+
+
 
 .product-card:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -428,3 +461,238 @@ video{
     text-decoration: none;
 }
 
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.nav-dropdown {
+    display: flex;
+}
+
+
+@media screen and (max-width: 1200px) {
+    h1 {
+        font-size: 50px;
+    }
+    
+    .one p, .iphone p, .asus p, .mi p, .oneplus p, .motorola p {
+        width: 80%;
+        padding: 30px;
+        font-size: 18px;
+    }
+    
+    .product-card img {
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    h1 {
+        font-size: 40px;
+        padding: 8px;
+    }
+    
+    .one p, .iphone p, .asus p, .mi p, .oneplus p, .motorola p {
+        width: 90%;
+        padding: 20px;
+        font-size: 16px;
+    }
+    
+    .shop h1 {
+        font-size: 30px;
+    }
+    
+    .product-card {
+        padding: 15px;
+    }
+    
+    .product-card img {
+        height: 160px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+    
+    .nav-dropdown {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: rgba(255, 255, 255, 0.95);
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    
+    .nav-dropdown.active {
+        display: block;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 15px 20px;
+        margin: 0;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    .nav-links a:hover, .nav-links a.active {
+        background-color: #f0f0f0;
+        color: #1428a0;
+        border-radius: 0;
+        padding: 15px 20px;
+    }
+    
+    .search-container {
+        width: 140px;
+    }
+    
+    #searchInput {
+        width: 100px;
+        font-size: 14px;
+    }
+    
+    .samsung, .iphone, .asus, .mi, .oneplus, .motorola {
+        padding: 15px;
+        margin-top: 10vh;
+    }
+    
+    h1 {
+        font-size: 32px;
+        padding: 6px;
+        margin-bottom: 20px;
+    }
+    
+    .one p, .iphone p, .asus p, .mi p, .oneplus p, .motorola p {
+        width: 100%;
+        padding: 15px;
+        font-size: 15px;
+    }
+    
+    .shop h1 {
+        font-size: 28px;
+    }
+    
+    .product-series {
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .product-card {
+        width: calc(50% - 20px);
+        padding: 12px;
+    }
+    
+    .product-card img {
+        height: 150px;
+    }
+    
+    .product-card h3 {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .product-card h4 {
+        padding: 6px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .main-header {
+        padding: 0 15px;
+    }
+    
+    .logo img {
+        height: 45px;
+    }
+    
+    .search-container {
+        width: 120px;
+    }
+    
+    #searchInput {
+        width: 80px;
+        padding: 6px 8px;
+    }
+    
+    .cart, .account {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+    
+    .samsung, .iphone, .asus, .mi, .oneplus, .motorola {
+        padding: 10px;
+        margin-top: 5vh;
+    }
+    
+    h1 {
+        font-size: 28px;
+        padding: 5px;
+        margin-bottom: 15px;
+    }
+    
+    .one p, .iphone p, .asus p, .mi p, .oneplus p, .motorola p {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .shop h1 {
+        font-size: 24px;
+    }
+    
+    .product-series {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .product-card {
+        width: 100%;
+        max-width: 280px;
+        margin: 8px 0;
+    }
+    
+    .product-card h3 {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .product-card h4 {
+        padding: 6px;
+        font-size: 12px;
+    }
+}

@@ -17,13 +17,20 @@
         </div>
         
         <nav class="main-nav">
-            <div class="nav-links">
-                <a href="#samsung-section" id="samsung">Samsung</a>
-                <a href="#i-phone-section" id="i-phone">I-Phone</a>
-                <a href="#asus-section" id="asus">Asus</a>
-                <a href="#mi-section" id="mi">Xiaomi</a>
-                <a href="#oneplus-section" id="oneplus">Oneplus</a>
-                <a href="#motorola-section" id="motorola">Motorola</a>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-dropdown" id="navDropdown">
+                <div class="nav-links">
+                    <a href="#samsung-section" id="samsung" data-section="samsung-section">Samsung</a>
+                    <a href="#i-phone-section" id="i-phone" data-section="i-phone-section">I-Phone</a>
+                    <a href="#asus-section" id="asus" data-section="asus-section">Asus</a>
+                    <a href="#mi-section" id="mi" data-section="mi-section">Xiaomi</a>
+                    <a href="#oneplus-section" id="oneplus" data-section="oneplus-section">Oneplus</a>
+                    <a href="#motorola-section" id="motorola" data-section="motorola-section">Motorola</a>
+                </div>
             </div>
         </nav>
         
@@ -43,6 +50,7 @@
             
             <div class="cart">
                 <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <span id="cart-count" class="cart-count">0</span>
             </div>
             
             <div class="account">
@@ -64,30 +72,30 @@
         </div>
 
         <div class="shop">
-            <a href=""><h1>View All >></h1></a>
+            <a href="samsung.html"><h1>View All >></h1></a>
             <div class="product-series">
                 <div class="product-card">
                     <img src="./Brands/Samsung/sseries.webp" alt="Samsung Galaxy S25 Ultra">
                     <h3>Samsung S series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="samsung.html?series=s"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/Samsung/zseries.webp" alt="Samsung Galaxy Z series" height="200px">
                     <h3>Samsung Z series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="samsung.html?series=z"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/Samsung/aseries.webp" alt="Samsung Galaxy A series" height="200px">
                     <h3>Samsung A series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="samsung.html?series=a"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/Samsung/mseries.webp" alt="Samsung Galaxy M series" height="200px">
                     <h3>Samsung M series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="samsung.html?series=m"><h4>Shop Now</h4></a>
                 </div>
             </div>
         </div>
@@ -105,30 +113,30 @@
              with a seamless iOS experience. Known for premium design, long-term updates, and ecosystem integration, iPhones dominate the premium market. Latest models feature USB-C, Dynamic Island, and Titanium builds.</p>
 
         <div class="shop">
-            <a href=""><h1>View All >></h1></a>
+            <a href="iphone.html"><h1>View All >></h1></a>
             <div class="product-series">
                 <div class="product-card">
                     <img src="./Brands/I-Phone/13series.jpg" alt="I-Phone 13">
                     <h3>iPhone 13 series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="iphone.html?series=13"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/I-Phone/14series.jpeg" alt="I-Phone 14">
                     <h3>iPhone 14 series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="iphone.html?series=14"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/I-Phone/15series.png" alt="I-Phone 15">
                     <h3>iPhone 15 series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="iphone.html?series=15"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/I-Phone/16series.jpeg" alt="I-Phone 16">
                     <h3>iPhone 16 series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="iphone.html?series=16"><h4>Shop Now</h4></a>
                 </div>
             </div>
         </div>
@@ -146,18 +154,18 @@
         its high-end components. The ROG Phone, on the other hand, boasts a landscape design, unique AirTriggers, a powerful processor, and an ultrafast</p>
 
         <div class="shop">
-            <a href=""><h1>View All >></h1></a>
+            <a href="asus.html"><h1>View All >></h1></a>
             <div class="product-series">
                 <div class="product-card">
                     <img src="./Brands/Asus/zenfone.png" alt="Zenfone">
                     <h3>Zenfone</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="asus.html?series=zenfone"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/Asus/rog.webp" alt="Asus ROG">
                     <h3>Asus ROG</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="asus.html?series=rog"><h4>Shop Now</h4></a>
                 </div>
             </div>
         </div>
@@ -176,36 +184,36 @@
         is known for its gaming performance, MI series is designed for gamers.</p>
 
         <div class="shop">
-            <a href=""><h1>View All >></h1></a>
+            <a href="xiaomi.html"><h1>View All >></h1></a>
             <div class="product-series">
                 <div class="product-card">
                     <img src="./Brands/MI/redmiseries.webp" alt="Redmi">
                     <h3>Redmi</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="xiaomi.html?series=redmi"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/MI/redmiseries.webp" alt="Mi">
                     <h3>Mi</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="xiaomi.html?series=mi"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/MI/pocoseries.webp" alt="PocoX">
                     <h3>Poco X series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="xiaomi.html?series=pocox"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/MI/pocomseries.webp" alt="PocoM">
                     <h3>Poco M series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="xiaomi.html?series=pocom"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/MI/pocofseries.webp" alt="PocoF">
                     <h3>Poco F series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="xiaomi.html?series=pocof"><h4>Shop Now</h4></a>
                 </div>
 
             </div>
@@ -226,18 +234,18 @@
         is known for its camera quality, while the OnePlus Nord series is known for its budget-friendly features.</p>
 
         <div class="shop">
-            <a href=""><h1>View All >></h1></a>
+            <a href="oneplus.html"><h1>View All >></h1></a>
             <div class="product-series">
                 <div class="product-card">
                     <img src="./Brands/Oneplus/flagshipseries.webp" alt="flagship series">
                     <h3>Flagship series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="oneplus.html?series=flagship"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/Oneplus/nordnseries.webp" alt="Nord series">
                     <h3>Nord N series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="oneplus.html?series=nord"><h4>Shop Now</h4></a>
                 </div>
             </div>
         </div>
@@ -257,24 +265,24 @@
         is known for its gaming performance, Moto E series is designed for gamers.</p>
 
         <div class="shop">
-            <a href=""><h1>View All >></h1></a>
+            <a href="motorola.html"><h1>View All >></h1></a>
             <div class="product-series">
                 <div class="product-card">
                     <img src="./Brands/Motorola/motogseries.webp" alt="Moto G series">
                     <h3>Moto G series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="motorola.html?series=motog"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/Motorola/edgeseries.webp" alt="Edge series">
                     <h3>Edge series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="motorola.html?series=edge"><h4>Shop Now</h4></a>
                 </div>
 
                 <div class="product-card">
                     <img src="./Brands/Motorola/razrseries.avif" alt="Razr series">
                     <h3>Razr series</h3>
-                    <a href=""><h4>Shop Now</h4></a>
+                    <a href="motorola.html?series=razr"><h4>Shop Now</h4></a>
                 </div>
 
             </div>
