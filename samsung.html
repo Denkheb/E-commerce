@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Mobiles - Mo-Fo</title>
+    <link rel="stylesheet" href="samsung.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+           <a href="index.html"><img src="mofo.png" alt="Logo of this website" height="54px"></a>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-dropdown" id="navDropdown">
+                <div class="nav-links">
+                    <a href="index.html#samsung-section" id="samsung" class="active">Samsung</a>
+                    <a href="index.html#i-phone-section" id="i-phone">I-Phone</a>
+                    <a href="index.html#asus-section" id="asus">Asus</a>
+                    <a href="index.html#mi-section" id="mi">Xiaomi</a>
+                    <a href="index.html#oneplus-section" id="oneplus">Oneplus</a>
+                    <a href="index.html#motorola-section" id="motorola">Motorola</a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="header-actions">
+            <div class="search">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search">
+                    <button id="searchButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+            
+            <div class="cart">
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <span id="cart-count" class="cart-count">0</span>
+            </div>
+            
+            <div class="account">
+                <a href="signin.html"><i class="fa fa-user-circle"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <div class="sidebar">
+            <div class="filter-section">
+                <h3>Samsung Series</h3>
+                <ul class="series-list">
+                    <li><a href="#" class="series-link active" data-series="all">All Series</a></li>
+                    <li><a href="#" class="series-link" data-series="s-series">S Series</a></li>
+                    <li><a href="#" class="series-link" data-series="z-series">Z Series (Fold/Flip)</a></li>
+                    <li><a href="#" class="series-link" data-series="a-series">A Series</a></li>
+                    <li><a href="#" class="series-link" data-series="m-series">M Series</a></li>
+                </ul>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Price Range</h3>
+                <div class="price-range">
+                    <div class="range-slider">
+                        <input type="range" id="min-price" min="5000" max="200000" value="5000" step="1000">
+                        <input type="range" id="max-price" min="5000" max="200000" value="200000" step="1000">
+                    </div>
+                    <div class="price-inputs">
+                        <div class="price-input">
+                            <span>₹</span>
+                            <input type="number" id="min-price-input" min="5000" max="200000" value="5000">
+                        </div>
+                        <span class="price-separator">-</span>
+                        <div class="price-input">
+                            <span>₹</span>
+                            <input type="number" id="max-price-input" min="5000" max="200000" value="200000">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Features</h3>
+                <div class="feature-filters">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="feature-checkbox" value="5g">
+                        <span class="checkmark"></span>
+                        5G Support
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="feature-checkbox" value="waterproof">
+                        <span class="checkmark"></span>
+                        Water Resistant
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="feature-checkbox" value="fastcharge">
+                        <span class="checkmark"></span>
+                        Fast Charging
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="content-header">
+                <h1>Samsung Galaxy Smartphones</h1>
+                <div class="sort-options">
+                    <label for="sort-by">Sort By:</label>
+                    <select id="sort-by">
+                        <option value="popularity">Popularity</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-container" id="products-container">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="samsung.js"></script>
+</body>
+</html>

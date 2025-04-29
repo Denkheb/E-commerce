@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.getElementById('navToggle');
+    const navDropdown = document.getElementById('navDropdown');
+    const navLinks = document.querySelectorAll('.nav-links a');
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
     const searchResults = document.getElementById('searchResults');
+    const cartCount = document.getElementById('cart-count');
     
     const searchItems = {
         'Samsung': ['Samsung S series', 'Samsung Z series', 'Samsung A series', 'Samsung M series'],
@@ -12,6 +16,55 @@ document.addEventListener('DOMContentLoaded', function() {
         'Motorola': ['Moto G series', 'Edge series', 'Razr series']
     };
     const brands = Object.keys(searchItems);
+
+    
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            navDropdown.classList.toggle('active');
+            this.classList.toggle('active');
+            
+            
+            if (navDropdown.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    
+    document.addEventListener('click', function(e) {
+        if (navDropdown && navDropdown.classList.contains('active') && 
+            !navDropdown.contains(e.target) && 
+            !navToggle.contains(e.target)) {
+            navToggle.classList.remove('active');
+            navDropdown.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const sectionId = this.getAttribute('data-section');
+            const section = document.getElementById(sectionId);
+            
+            
+            if (window.innerWidth <= 768) {
+                navDropdown.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            section.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
 
     function levenshteinDistance(a, b) {
         const matrix = Array(b.length + 1).fill(null).map(() => 
@@ -97,12 +150,69 @@ document.addEventListener('DOMContentLoaded', function() {
                 searchInput.value = item;
                 searchResults.style.display = 'none';
                 
+                
                 const brand = brands.find(b => searchItems[b].includes(item)) || item.split(' ')[0];
-                highlightNavItem(brand);
-                const sectionId = getSectionId(brand);
-                const element = document.getElementById(sectionId);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
+                const seriesMatch = item.match(/([A-Za-z]+)\s+([A-Za-z0-9]+)\s+series/i);
+                let url = '';
+                
+                if (brand === 'Samsung') {
+                    url = 'samsung.html';
+                    if (seriesMatch && seriesMatch[2]) {
+                        url += `?series=${seriesMatch[2].toLowerCase()}`;
+                    }
+                } else if (brand === 'I-Phone') {
+                    url = 'iphone.html';
+                    if (seriesMatch && seriesMatch[2]) {
+                        url += `?series=${seriesMatch[2]}`;
+                    }
+                } else if (brand === 'Asus') {
+                    url = 'asus.html';
+                    if (item.toLowerCase().includes('rog')) {
+                        url += '?series=rog';
+                    } else if (item.toLowerCase().includes('zenfone')) {
+                        url += '?series=zenfone';
+                    }
+                } else if (brand === 'Xiaomi') {
+                    url = 'xiaomi.html';
+                    if (item.toLowerCase().includes('redmi')) {
+                        url += '?series=redmi';
+                    } else if (item.toLowerCase().includes('mi')) {
+                        url += '?series=mi';
+                    } else if (item.toLowerCase().includes('poco x')) {
+                        url += '?series=pocox';
+                    } else if (item.toLowerCase().includes('poco m')) {
+                        url += '?series=pocom';
+                    } else if (item.toLowerCase().includes('poco f')) {
+                        url += '?series=pocof';
+                    }
+                } else if (brand === 'Oneplus') {
+                    url = 'oneplus.html';
+                    if (item.toLowerCase().includes('flagship')) {
+                        url += '?series=flagship';
+                    } else if (item.toLowerCase().includes('nord')) {
+                        url += '?series=nord';
+                    }
+                } else if (brand === 'Motorola') {
+                    url = 'motorola.html';
+                    if (item.toLowerCase().includes('moto g')) {
+                        url += '?series=motog';
+                    } else if (item.toLowerCase().includes('edge')) {
+                        url += '?series=edge';
+                    } else if (item.toLowerCase().includes('razr')) {
+                        url += '?series=razr';
+                    }
+                } else {
+                    
+                    const sectionId = getSectionId(brand);
+                    const element = document.getElementById(sectionId);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                        return;
+                    }
+                }
+                
+                if (url) {
+                    window.location.href = url;
                 }
             });
             
@@ -118,34 +228,9 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (brandName === 'I-Phone') {
             return 'i-phone-section';
         } else {
-            return brandName.toLowerCase().replace(' ', '-');
+            return brandName.toLowerCase().replace(' ', '-') + '-section';
         }
     }
-    
-    function highlightNavItem(brandName) {
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.classList.remove('active');
-        });
-        
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            if (link.textContent === brandName) {
-                link.classList.add('active');
-            }
-        });
-    }
-    
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', function() {
-            const brandName = this.textContent;
-            searchInput.value = brandName;
-            highlightNavItem(brandName);
-            const sectionId = getSectionId(brandName);
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
     
     searchInput.addEventListener('input', function() {
         showSearchResults(this.value);
@@ -166,7 +251,39 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             showSearchResults(this.value);
-            
         }
     });
+    
+    
+    if (cartCount) {
+        
+        if (localStorage.getItem('mofo-cart')) {
+            try {
+                const cart = JSON.parse(localStorage.getItem('mofo-cart'));
+                cartCount.textContent = cart.length;
+                
+                
+                if (cart.length > 0) {
+                    cartCount.style.display = 'flex';
+                } else {
+                    cartCount.style.display = 'none';
+                }
+            } catch (e) {
+                console.error('Error loading cart from localStorage:', e);
+                localStorage.removeItem('mofo-cart');
+                cartCount.style.display = 'none';
+            }
+        } else {
+            cartCount.style.display = 'none';
+        }
+    }
+    
+    
+    function setVhProperty() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    setVhProperty();
+    window.addEventListener('resize', setVhProperty);
 });
