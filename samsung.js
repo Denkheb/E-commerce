@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy S23 Ultra",
             series: "s-series",
             price: 124999,
-            image: "Brands/Samsung/s23ultra.png",
+            image: "brands/samsung/s23ultra.png",
             features: ["5g", "waterproof", "fastcharge"],
             specs: "200MP Camera, 12GB RAM, Snapdragon 8 Gen 2"
         },
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy S23",
             series: "s-series",
             price: 74999,
-            image: "Brands/Samsung/s23.png",
+            image: "brands/samsung/s23.png",
             features: ["5g", "waterproof", "fastcharge"],
             specs: "50MP Camera, 8GB RAM, Snapdragon 8 Gen 2"
         },
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy Z Fold 5",
             series: "z-series",
             price: 154999,
-            image: "Brands/Samsung/zfold5.png",
+            image: "brands/samsung/zfold5.png",
             features: ["5g", "fastcharge"],
             specs: "Foldable Display, 12GB RAM, Snapdragon 8 Gen 2"
         },
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy Z Flip 5",
             series: "z-series",
             price: 99999,
-            image: "Brands/Samsung/zflip5.png",
+            image: "brands/samsung/zflip5.png",
             features: ["5g", "fastcharge"],
             specs: "Flip Display, 8GB RAM, Snapdragon 8 Gen 2"
         },
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy A54",
             series: "a-series",
             price: 38999,
-            image: "Brands/Samsung/a54.jpg",
+            image: "brands/samsung/a54.jpg",
             features: ["5g", "waterproof"],
             specs: "50MP Camera, 8GB RAM, Exynos 1380"
         },
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy A34",
             series: "a-series",
             price: 28999,
-            image: "Brands/Samsung/a34.jpg",
+            image: "brands/samsung/a34.jpg",
             features: ["5g"],
             specs: "48MP Camera, 8GB RAM, Dimensity 1080"
         },
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy A14",
             series: "a-series",
             price: 14999,
-            image: "Brands/Samsung/a14.png",
+            image: "brands/samsung/a14.png",
             features: ["5g"],
             specs: "50MP Camera, 4GB RAM, Dimensity 700"
         },
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy M34",
             series: "m-series",
             price: 18999,
-            image: "Brands/Samsung/m34.jpg",
+            image: "brands/samsung/m34.jpg",
             features: ["5g", "fastcharge"],
             specs: "50MP Camera, 6GB RAM, Exynos 1280"
         },
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy M14",
             series: "m-series",
             price: 13999,
-            image: "Brands/Samsung/m14.png",
+            image: "brands/samsung/m14.png",
             features: ["5g"],
             specs: "50MP Camera, 4GB RAM, Exynos 1330"
         },
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy Z Flip 6",
             series: "z-series",
             price: 154999,
-            image: "Brands/Samsung/zflip6.jpg",
+            image: "brands/samsung/zflip6.jpg",
             features: ["5g", "fastcharge"],
             specs: "Flip Display, 8GB RAM, Snapdragon 8 Gen 2"
         },
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy S24 Ultra",
             series: "f-series",
             price: 199999,
-            image: "Brands/Samsung/s24ultra.jpg",
+            image: "brands/samsung/s24ultra.jpg",
             features: ["5g", "waterproof", "fastcharge"],
             specs: "200MP Camera, 16GB RAM, Snapdragon 8 Gen 3"
         },
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Samsung Galaxy S22 Ultra",
             series: "s-series",
             price: 99999,
-            image: "Brands/Samsung/s22ultra.jpg",
+            image: "brands/samsung/s22ultra.jpg",
             features: ["5g", "waterproof", "fastcharge"],
             specs: "108MP Camera, 12GB RAM, Snapdragon 8 Gen 1"
         }
