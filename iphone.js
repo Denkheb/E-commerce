@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const seriesParam = urlParams.get('series');
     if (seriesParam) {
         currentSeries = `${seriesParam}-series`;
+        const seriesLink = document.querySelector(`[data-series="${seriesParam}-series"]`);
+        if (seriesLink) {
+            document.querySelectorAll('.series-link').forEach(link => link.classList.remove('active'));
+            seriesLink.classList.add('active');
+        }
     }
     
     const navToggle = document.getElementById('navToggle');
@@ -22,95 +27,68 @@ document.addEventListener('DOMContentLoaded', function() {
     const minPriceInput = document.getElementById('min-price-input');
     const maxPriceInput = document.getElementById('max-price-input');
     
-    
     minPriceSlider.addEventListener('input', function() {
         minPriceInput.value = this.value;
-        
         if (parseInt(minPriceSlider.value) > parseInt(maxPriceSlider.value)) {
             maxPriceSlider.value = minPriceSlider.value;
             maxPriceInput.value = minPriceSlider.value;
         }
-        
         filterProducts();
     });
     
     maxPriceSlider.addEventListener('input', function() {
         maxPriceInput.value = this.value;
-        
         if (parseInt(maxPriceSlider.value) < parseInt(minPriceSlider.value)) {
             minPriceSlider.value = maxPriceSlider.value;
             minPriceInput.value = maxPriceSlider.value;
         }
-        
         filterProducts();
     });
     
-    
     minPriceInput.addEventListener('change', function() {
         minPriceSlider.value = this.value;
-        
         if (parseInt(minPriceInput.value) > parseInt(maxPriceInput.value)) {
             maxPriceInput.value = minPriceInput.value;
             maxPriceSlider.value = minPriceInput.value;
         }
-        
         filterProducts();
     });
     
     maxPriceInput.addEventListener('change', function() {
         maxPriceSlider.value = this.value;
-        
         if (parseInt(maxPriceInput.value) < parseInt(minPriceInput.value)) {
             minPriceInput.value = maxPriceInput.value;
             minPriceSlider.value = maxPriceInput.value;
         }
-        
         filterProducts();
     });
-    
     
     const seriesLinks = document.querySelectorAll('.series-link');
     
     seriesLinks.forEach(link => {
-        // Set initial active state based on URL parameter
-        if (link.getAttribute('data-series') === currentSeries) {
+        const linkSeries = link.getAttribute('data-series');
+        if (linkSeries === currentSeries) {
             link.classList.add('active');
         }
         
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Remove active class from all series links except "View All"
-            seriesLinks.forEach(l => {
-                if (l.getAttribute('data-series') !== 'all') {
-                    l.classList.remove('active');
-                }
-            });
-            
-            // Add active class to clicked link
+            seriesLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
-            
-            // Update current series
             currentSeries = this.getAttribute('data-series');
-            
-            // Filter products
             filterProducts();
         });
     });
     
-    
     const sortSelect = document.getElementById('sort-by');
     sortSelect.addEventListener('change', filterProducts);
-    
     
     const featureCheckboxes = document.querySelectorAll('.feature-checkbox');
     featureCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', filterProducts);
     });
     
-    
     let cart = [];
-    
     
     if (localStorage.getItem('mofo-cart')) {
         try {
@@ -122,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    
     function updateCartCount() {
         const cartCount = document.getElementById('cart-count');
         if (cartCount) {
@@ -130,130 +107,238 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    
     function addToCart(product) {
         cart.push(product);
         localStorage.setItem('mofo-cart', JSON.stringify(cart));
         updateCartCount();
     }
     
-    
-    const samsungPhones = [
+    const iphonePhones = [
         {
-            id: 1,
-            name: "Samsung Galaxy S23 Ultra",
-            series: "s-series",
-            price: 124999,
-            image: "Brands/Samsung/s23ultra.png",
-            features: ["5g", "waterproof", "fastcharge"],
-            specs: "200MP Camera, 12GB RAM, Snapdragon 8 Gen 2"
+            id: 'iphone-16-pro-max',
+            name: 'iPhone 16 Pro Max',
+            series: '16-series',
+            price: 169900,
+            image: 'Brands/I-Phone/iphone16promax.webp',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '48MP + 12MP + 12MP',
+                ram: '8GB',
+                storage: '256GB',
+                battery: '4500mAh'
+            }
         },
         {
-            id: 2,
-            name: "Samsung Galaxy S23",
-            series: "s-series",
-            price: 74999,
-            image: "Brands/Samsung/s23.png",
-            features: ["5g", "waterproof", "fastcharge"],
-            specs: "50MP Camera, 8GB RAM, Snapdragon 8 Gen 2"
+            id: 'iphone-16-pro',
+            name: 'iPhone 16 Pro',
+            series: '16-series',
+            price: 159900,
+            image: 'Brands/I-Phone/iphone16pro.webp',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '48MP + 12MP + 12MP',
+                ram: '8GB',
+                storage: '128GB',
+                battery: '3400mAh'
+            }
         },
         {
-            id: 3,
-            name: "Samsung Galaxy Z Fold 5",
-            series: "z-series",
-            price: 154999,
-            image: "Brands/Samsung/zfold5.png",
-            features: ["5g", "fastcharge"],
-            specs: "Foldable Display, 12GB RAM, Snapdragon 8 Gen 2"
+            id: 'iphone-16-plus',
+            name: 'iPhone 16 Plus',
+            series: '16-series',
+            price: 99900,
+            image: 'Brands/I-Phone/iphone16plus.jpg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '48MP + 12MP',
+                ram: '6GB',
+                storage: '128GB',
+                battery: '4400mAh'
+            }
         },
         {
-            id: 4,
-            name: "Samsung Galaxy Z Flip 5",
-            series: "z-series",
-            price: 99999,
-            image: "Brands/Samsung/zflip5.png",
-            features: ["5g", "fastcharge"],
-            specs: "Flip Display, 8GB RAM, Snapdragon 8 Gen 2"
+            id: 'iphone-16',
+            name: 'iPhone 16',
+            series: '16-series',
+            price: 89900,
+            image: 'Brands/I-Phone/iphone16.webp',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '48MP + 12MP',
+                ram: '6GB',
+                storage: '128GB',
+                battery: '3400mAh'
+            }
         },
         {
-            id: 5,
-            name: "Samsung Galaxy A54",
-            series: "a-series",
-            price: 38999,
-            image: "Brands/Samsung/a54.jpg",
-            image: "Brands/Samsung/a54.jpg",
-            features: ["5g", "waterproof"],
-            specs: "50MP Camera, 8GB RAM, Exynos 1380"
+            id: 'iphone-15-pro-max',
+            name: 'iPhone 15 Pro Max',
+            series: '15-series',
+            price: 159900,
+            image: 'Brands/I-Phone/iphone 15pro max.jpg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '48MP + 12MP + 12MP',
+                ram: '8GB',
+                storage: '256GB',
+                battery: '4422mAh'
+            }
         },
         {
-            id: 6,
-            name: "Samsung Galaxy A34",
-            series: "a-series",
-            price: 28999,
-            image: "Brands/Samsung/a34.jpg",
-            image: "Brands/Samsung/a34.jpg",
-            features: ["5g"],
-            specs: "48MP Camera, 8GB RAM, Dimensity 1080"
+            id: 'iphone-15-pro',
+            name: 'iPhone 15 Pro',
+            series: '15-series',
+            price: 149900,
+            image: 'Brands/I-Phone/iphone15pro.jpg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '48MP + 12MP + 12MP',
+                ram: '8GB',
+                storage: '128GB',
+                battery: '3274mAh'
+            }
         },
         {
-            id: 7,
-            name: "Samsung Galaxy A14",
-            series: "a-series",
-            price: 14999,
-            image: "Brands/Samsung/a14.png",
-            image: "Brands/Samsung/a14.png",
-            features: ["5g"],
-            specs: "50MP Camera, 4GB RAM, Dimensity 700"
+            id: 'iphone-15-plus',
+            name: 'iPhone 15 Plus',
+            series: '15-series',
+            price: 89900,
+            image: 'Brands/I-Phone/iphone15plus.jpg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '48MP + 12MP',
+                ram: '6GB',
+                storage: '128GB',
+                battery: '4383mAh'
+            }
         },
         {
-            id: 8,
-            name: "Samsung Galaxy M34",
-            series: "m-series",
-            price: 18999,
-            image: "Brands/Samsung/m34.jpg",
-            image: "Brands/Samsung/m34.jpg",
-            features: ["5g", "fastcharge"],
-            specs: "50MP Camera, 6GB RAM, Exynos 1280"
+            id: 'iphone-15',
+            name: 'iPhone 15',
+            series: '15-series',
+            price: 79900,
+            image: 'Brands/I-Phone/iphone15.webp',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '48MP + 12MP',
+                ram: '6GB',
+                storage: '128GB',
+                battery: '3349mAh'
+            }
         },
         {
-            id: 9,
-            name: "Samsung Galaxy M14",
-            series: "m-series",
-            price: 13999,
-            image: "Brands/Samsung/m14.png",
-            image: "Brands/Samsung/m14.png",
-            features: ["5g"],
-            specs: "50MP Camera, 4GB RAM, Exynos 1330"
+            id: 'iphone-14-pro-max',
+            name: 'iPhone 14 Pro Max',
+            series: '14-series',
+            price: 139900,
+            image: 'Brands/I-Phone/iphone14promax.jpeg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '48MP + 12MP + 12MP',
+                ram: '6GB',
+                storage: '256GB',
+                battery: '4323mAh'
+            }
         },
         {
-            id: 10,
-            name: "Samsung Galaxy Z Flip 6",
-            series: "z-series",
-            price: 154999,
-            image: "Brands/Samsung/zflip6.jpg",
-            features: ["5g", "fastcharge"],
-            specs: "Flip Display, 8GB RAM, Snapdragon 8 Gen 2"
+            id: 'iphone-14-pro',
+            name: 'iPhone 14 Pro',
+            series: '14-series',
+            price: 129900,
+            image: 'Brands/I-Phone/iphone14pro.jpeg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '48MP + 12MP + 12MP',
+                ram: '6GB',
+                storage: '128GB',
+                battery: '3200mAh'
+            }
         },
         {
-            id: 11,
-            name: "Samsung Galaxy S24 Ultra",
-            series: "f-series",
-            price: 199999,
-            image: "Brands/Samsung/s24ultra.jpg",
-            features: ["5g", "waterproof", "fastcharge"],
-            specs: "200MP Camera, 16GB RAM, Snapdragon 8 Gen 3"
+            id: 'iphone-14-plus',
+            name: 'iPhone 14 Plus',
+            series: '14-series',
+            price: 79900,
+            image: 'Brands/I-Phone/iphone14pus.jpeg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '12MP + 12MP',
+                ram: '6GB',
+                storage: '128GB',
+                battery: '4325mAh'
+            }
         },
         {
-            id: 12,
-            name: "Samsung Galaxy S22 Ultra",
-            series: "s-series",
-            price: 99999,
-            image: "Brands/Samsung/s22ultra.jpg",
-            features: ["5g", "waterproof", "fastcharge"],
-            specs: "108MP Camera, 12GB RAM, Snapdragon 8 Gen 1"
+            id: 'iphone-14',
+            name: 'iPhone 14',
+            series: '14-series',
+            price: 69900,
+            image: 'Brands/I-Phone/iphone14.jpeg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '12MP + 12MP',
+                ram: '6GB',
+                storage: '128GB',
+                battery: '3279mAh'
+            }
+        },
+        {
+            id: 'iphone-13-pro-max',
+            name: 'iPhone 13 Pro Max',
+            series: '13-series',
+            price: 119900,
+            image: 'Brands/I-Phone/iphone13promax.jpeg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '12MP + 12MP + 12MP',
+                ram: '6GB',
+                storage: '256GB',
+                battery: '4352mAh'
+            }
+        },
+        {
+            id: 'iphone-13-pro',
+            name: 'iPhone 13 Pro',
+            series: '13-series',
+            price: 109900,
+            image: 'Brands/I-Phone/iphone13pro.jpeg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '12MP + 12MP + 12MP',
+                ram: '6GB',
+                storage: '128GB',
+                battery: '3095mAh'
+            }
+        },
+        {
+            id: 'iphone-13',
+            name: 'iPhone 13',
+            series: '13-series',
+            price: 69900,
+            image: 'Brands/I-Phone/iphone13.jpg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '12MP + 12MP',
+                ram: '4GB',
+                storage: '128GB',
+                battery: '3240mAh'
+            }
+        },
+        {
+            id: 'iphone-13-mini',
+            name: 'iPhone 13 mini',
+            series: '13-series',
+            price: 59900,
+            image: 'Brands/I-Phone/iphone13 mini.jpeg',
+            features: ['5g', 'waterproof', 'fastcharge'],
+            specs: {
+                camera: '12MP + 12MP',
+                ram: '4GB',
+                storage: '128GB',
+                battery: '2406mAh'
+            }
         }
     ];
-    
     
     function renderProducts(products) {
         const productsContainer = document.getElementById('products-container');
@@ -283,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3 class="product-name">${product.name}</h3>
                         <div class="product-price">₹${product.price.toLocaleString()}</div>
                         <div class="product-features">${featureHTML}</div>
-                        <p class="product-specs">${product.specs}</p>
+                        <p class="product-specs">${JSON.stringify(product.specs)}</p>
                         <button class="buy-btn">Buy Now</button>
                     </div>
                 </div>
@@ -292,27 +377,18 @@ document.addEventListener('DOMContentLoaded', function() {
             productsContainer.innerHTML += productCard;
         });
         
-        
         document.querySelectorAll('.buy-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                const productId = parseInt(this.closest('.product-card').getAttribute('data-id'));
-                const product = samsungPhones.find(p => p.id === productId);
+                const productId = this.closest('.product-card').getAttribute('data-id');
+                const product = iphonePhones.find(p => p.id === productId);
                 
                 if (product) {
-                    addToCart({
-                        id: product.id,
-                        name: product.name,
-                        price: product.price,
-                        image: product.image,
-                        quantity: 1
-                    });
-                    
+                    addToCart(product);
                     
                     const confirmMessage = document.createElement('div');
                     confirmMessage.className = 'cart-confirmation';
                     confirmMessage.textContent = `${product.name} added to cart!`;
                     document.body.appendChild(confirmMessage);
-                    
                     
                     setTimeout(() => {
                         confirmMessage.classList.add('fade-out');
@@ -325,35 +401,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    
     function formatSeries(series) {
         switch(series) {
-            case 's-series': return 'Galaxy S Series';
-            case 'z-series': return 'Galaxy Z Series';
-            case 'a-series': return 'Galaxy A Series';
-            case 'm-series': return 'Galaxy M Series';
-            case 'f-series': return 'Galaxy F Series';
-            default: return 'Samsung Galaxy';
+            case '16-series': return 'iPhone 16 Series';
+            case '15-series': return 'iPhone 15 Series';
+            case '14-series': return 'iPhone 14 Series';
+            case '13-series': return 'iPhone 13 Series';
+            default: return 'iPhone';
         }
     }
     
-    
     function filterProducts() {
-        let filteredProducts = [...samsungPhones];
+        let filteredProducts = [...iphonePhones];
         
-        
+        // Filter by series
         if (currentSeries !== 'all') {
             filteredProducts = filteredProducts.filter(product => product.series === currentSeries);
         }
         
-        
+        // Filter by price
         const minPrice = parseInt(minPriceInput.value);
         const maxPrice = parseInt(maxPriceInput.value);
         filteredProducts = filteredProducts.filter(product => 
             product.price >= minPrice && product.price <= maxPrice
         );
         
-        
+        // Filter by features
         const selectedFeatures = [];
         featureCheckboxes.forEach(checkbox => {
             if (checkbox.checked) {
@@ -367,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
             );
         }
         
-        
+        // Sort products
         const sortValue = sortSelect.value;
         switch(sortValue) {
             case 'price-low':
@@ -377,21 +450,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 filteredProducts.sort((a, b) => b.price - a.price);
                 break;
             case 'newest':
-                
                 filteredProducts.reverse();
                 break;
             default:
-                
                 break;
         }
-        
         
         renderProducts(filteredProducts);
     }
     
-    
+    // Initialize the page
     filterProducts();
-    
-    
     updateCartCount();
-});
+}); 
