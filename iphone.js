@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 16 Pro Max',
             series: '16-series',
             price: 169900,
-            image: 'Brands/I-Phone/iphone16promax.webp',
+            image: 'Brands/I-Phone/iphone-16-pro-max.webp',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '48MP + 12MP + 12MP',
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 16 Pro',
             series: '16-series',
             price: 159900,
-            image: 'Brands/I-Phone/iphone16pro.webp',
+            image: 'Brands/I-Phone/iphone-16-pro.webp',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '48MP + 12MP + 12MP',
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 16 Plus',
             series: '16-series',
             price: 99900,
-            image: 'Brands/I-Phone/iphone16plus.jpg',
+            image: 'Brands/I-Phone/iphone-16-plus.jpg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '48MP + 12MP',
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 16',
             series: '16-series',
             price: 89900,
-            image: 'Brands/I-Phone/iphone16.webp',
+            image: 'Brands/I-Phone/iphone-16.webp',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '48MP + 12MP',
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 15 Pro Max',
             series: '15-series',
             price: 159900,
-            image: 'Brands/I-Phone/iphone 15pro max.jpg',
+            image: 'Brands/I-Phone/iphone-15-pro-max.jpg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '48MP + 12MP + 12MP',
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 15 Pro',
             series: '15-series',
             price: 149900,
-            image: 'Brands/I-Phone/iphone15pro.jpg',
+            image: 'Brands/I-Phone/iphone-15-pro.jpg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '48MP + 12MP + 12MP',
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 15 Plus',
             series: '15-series',
             price: 89900,
-            image: 'Brands/I-Phone/iphone15plus.jpg',
+            image: 'Brands/I-Phone/iphone-15-plus.jpg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '48MP + 12MP',
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 15',
             series: '15-series',
             price: 79900,
-            image: 'Brands/I-Phone/iphone15.webp',
+            image: 'Brands/I-Phone/iphone-15.webp',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '48MP + 12MP',
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 14 Pro Max',
             series: '14-series',
             price: 139900,
-            image: 'Brands/I-Phone/iphone14promax.jpeg',
+            image: 'Brands/I-Phone/iphone-14-pro-max.jpeg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '48MP + 12MP + 12MP',
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 14 Pro',
             series: '14-series',
             price: 129900,
-            image: 'Brands/I-Phone/iphone14pro.jpeg',
+            image: 'Brands/I-Phone/iphone-14-pro.jpeg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '48MP + 12MP + 12MP',
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 14 Plus',
             series: '14-series',
             price: 79900,
-            image: 'Brands/I-Phone/iphone14pus.jpeg',
+            image: 'Brands/I-Phone/iphone-14-pus.jpeg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '12MP + 12MP',
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 14',
             series: '14-series',
             price: 69900,
-            image: 'Brands/I-Phone/iphone14.jpeg',
+            image: 'Brands/I-Phone/iphone-14.jpeg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '12MP + 12MP',
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 13 Pro Max',
             series: '13-series',
             price: 119900,
-            image: 'Brands/I-Phone/iphone13promax.jpeg',
+            image: 'Brands/I-Phone/iphone-13-pro-max.jpeg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '12MP + 12MP + 12MP',
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 13 Pro',
             series: '13-series',
             price: 109900,
-            image: 'Brands/I-Phone/iphone13pro.jpeg',
+            image: 'Brands/I-Phone/iphone-13-pro.jpeg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '12MP + 12MP + 12MP',
@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 13',
             series: '13-series',
             price: 69900,
-            image: 'Brands/I-Phone/iphone13.jpg',
+            image: 'Brands/I-Phone/iphone-13.jpg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '12MP + 12MP',
@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'iPhone 13 mini',
             series: '13-series',
             price: 59900,
-            image: 'Brands/I-Phone/iphone13 mini.jpeg',
+            image: 'Brands/I-Phone/iphone-13-mini.jpeg',
             features: ['5g', 'waterproof', 'fastcharge'],
             specs: {
                 camera: '12MP + 12MP',
